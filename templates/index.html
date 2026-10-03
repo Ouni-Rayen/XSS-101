@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Search{% endblock %}
+
+{% block content %}
+<section class="card">
+    <h1>Search</h1>
+    <p class="subtitle">Find what you're looking for</p>
+
+    <form method="GET" action="/">
+        <div class="search-row">
+            <input type="text" name="q" value="{{ query }}" placeholder="Type something..." autofocus>
+            <button type="submit" class="btn">Search</button>
+        </div>
+    </form>
+
+    {% if query %}
+    <div class="result">
+        <p class="result-label">Results for:</p>
+        <div class="result-content">{{ reflected | safe }}</div>
+    </div>
+    {% endif %}
+</section>
+
+<section class="card hint-card">
+    <p>The flag is stored in a cookie named <code>flag</code>.</p>
+    <p>Can you make JavaScript run on this page?</p>
+</section>
+{% endblock %}
