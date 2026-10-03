@@ -2,27 +2,39 @@
 {% block title %}Search{% endblock %}
 
 {% block content %}
-<section class="card">
+<section class="hero">
+    <img src="{{ url_for('static', filename='logo.jpg') }}" alt="" class="hero-logo">
     <h1>Search</h1>
     <p class="subtitle">Find what you're looking for</p>
+</section>
 
+<section class="card">
     <form method="GET" action="/">
         <div class="search-row">
-            <input type="text" name="q" value="{{ query }}" placeholder="Type something..." autofocus>
+            <div class="input-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+                <input type="text" name="q" value="{{ query }}" placeholder="Type something..." autofocus>
+            </div>
             <button type="submit" class="btn">Search</button>
         </div>
     </form>
 
     {% if query %}
     <div class="result">
-        <p class="result-label">Results for:</p>
+        <p class="result-label">Results for</p>
         <div class="result-content">{{ reflected | safe }}</div>
     </div>
     {% endif %}
 </section>
 
 <section class="card hint-card">
+    <p class="hint-title">// Challenge</p>
     <p>The flag is stored in a cookie named <code>flag</code>.</p>
     <p>Can you make JavaScript run on this page?</p>
+    <div class="chips">
+        <span class="chip">Reflected XSS</span>
+        <span class="chip">Filter bypass</span>
+        <span class="chip">Securinets{...}</span>
+    </div>
 </section>
 {% endblock %}
