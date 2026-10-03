@@ -11,22 +11,12 @@
     <link rel="icon" href="{{ url_for('static', filename='logo.jpg') }}" type="image/jpeg">
 </head>
 <body>
-    <header>
-        <div class="header-inner">
-            <a href="/" class="brand">
-                <img src="{{ url_for('static', filename='logo.jpg') }}" alt="" class="logo">
-                <span class="brand-name">Securinets <span>ISI</span></span>
-            </a>
-            <span class="tag">Web &middot; Beginner</span>
-        </div>
-    </header>
-
     <main>
         {% block content %}{% endblock %}
     </main>
 
     <footer>
-        <p>&copy; 2025 Securinets <span>ISI</span> &middot; CTF Challenge</p>
+        <p>&copy; 2025 Securinets <span>ISI</span></p>
     </footer>
 </body>
 </html>
